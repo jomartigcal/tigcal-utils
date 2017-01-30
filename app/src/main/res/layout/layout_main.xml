@@ -10,7 +10,140 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            card_view:cardCornerRadius="8dp">
 
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_horizontal_margin">
 
+                <TextView
+                    android:id="@+id/total_kwh_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kwh_total" />
+
+                <EditText
+                    android:id="@+id/total_kwh_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/total_kwh_label"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/total_amount_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/total_kwh_text"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:text="@string/amount_total" />
+
+                <EditText
+                    android:id="@+id/total_amount_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/total_amount_label"
+                    android:inputType="numberDecimal" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            card_view:cardCornerRadius="8dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:id="@+id/tigcal_kwh_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kwh_tigcal" />
+
+                <EditText
+                    android:id="@+id/tigcal_kwh_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tigcal_kwh_label"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/tigcal_amount_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tigcal_kwh_text"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:text="@string/amount_tigcal" />
+
+                <TextView
+                    android:id="@+id/tigcal_amount_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:textStyle="bold"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:layout_below="@id/tigcal_amount_label"
+                    android:text="0.00" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            card_view:cardCornerRadius="8dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_horizontal_margin">
+
+                <TextView
+                    android:id="@+id/neighbor_kwh_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/kwh_neighbor" />
+
+                <EditText
+                    android:id="@+id/neighbor_kwh_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/neighbor_kwh_label"
+                    android:inputType="numberDecimal" />
+
+                <TextView
+                    android:id="@+id/neighbor_amount_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/neighbor_kwh_text"
+                    android:layout_marginTop="@dimen/activity_vertical_margin"
+                    android:text="@string/amount_neighbor" />
+
+                <TextView
+                    android:id="@+id/neighbor_amount_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:textStyle="bold"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:layout_below="@id/neighbor_amount_label"
+                    android:text="0.00" />
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
