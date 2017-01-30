@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Bill Calculator</string>
+
+    <string name="kwh_total">Total kWH</string>
+    <string name="kwh_tigcal">Tigcal kWH</string>
+    <string name="kwh_neighbor">Neighbor kWH</string>
+
+    <string name="amount_total">Total Amount</string>
+    <string name="amount_tigcal">Tigcal Amount</string>
+    <string name="amount_neighbor">Neighbor Amount</string>
+        
 </resources>
