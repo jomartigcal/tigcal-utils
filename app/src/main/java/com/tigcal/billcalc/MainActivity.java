@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
             return totalAmount;
         }
 
-        MathContext mathContext = new MathContext(2, RoundingMode.HALF_UP);
+        MathContext mathContext = new MathContext(5, RoundingMode.HALF_UP);
         BigDecimal tigcalAmount = kwh.divide(BigDecimal.valueOf(totalKwh), mathContext);
         return tigcalAmount.multiply(totalAmount);
     }
