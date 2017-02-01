@@ -35,7 +35,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/total_kwh_label"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:selectAllOnFocus="true" />
 
                 <TextView
                     android:id="@+id/total_amount_label"
@@ -51,7 +52,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/total_amount_label"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true" />
 
             </RelativeLayout>
         </android.support.v7.widget.CardView>
