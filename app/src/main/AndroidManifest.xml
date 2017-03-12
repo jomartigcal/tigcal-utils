@@ -7,13 +7,14 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme.BillCalc">
+        android:supportsRtl="true">
         <activity
             android:name=".BillCalcActivity"
             android:icon="@mipmap/ic_bc_launcher"
             android:label="@string/app_bill_calc"
-            android:roundIcon="@mipmap/ic_bc_launcher_round">
+            android:roundIcon="@mipmap/ic_bc_launcher_round"
+            android:taskAffinity="com.tigcal.utils.billcalc"
+            android:theme="@style/AppTheme.BillCalc">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,13 +26,15 @@
             android:icon="@mipmap/ic_b_launcher"
             android:label="@string/app_battery"
             android:roundIcon="@mipmap/ic_b_launcher_round"
-            android:theme="@style/AppTheme.BillCalc">
+            android:taskAffinity="com.tigcal.utils.batt"
+            android:theme="@style/AppTheme.Battery">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

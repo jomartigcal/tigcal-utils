@@ -2,11 +2,21 @@
 
     <style name="AppTheme.BillCalc" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/bc_primary</item>
-        <item name="colorPrimaryDark">@color/bc_primary</item>
+        <item name="colorPrimaryDark">@color/bc_primary_dark</item>
         <item name="colorAccent">@color/accent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="colorButtonNormal">@color/bc_primary</item>
+    </style>
+
+    <style name="AppTheme.Battery" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/batt_primary</item>
+        <item name="colorPrimaryDark">@color/batt_primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorButtonNormal">@color/batt_primary</item>
+        <item name="android:windowDisablePreview">true</item>
     </style>
 
 </resources>

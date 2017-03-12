@@ -4,6 +4,9 @@
     <color name="bc_primary_dark">#F57C00</color>
     <color name="bc_primary_light">#FFE0B2</color>
 
+    <color name="batt_primary">#2196F3</color>
+    <color name="batt_primary_dark">#1976D2</color>
+    <color name="batt_primary_light">#BBDEFB</color>
     <color name="accent">#4CAF50</color>
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
