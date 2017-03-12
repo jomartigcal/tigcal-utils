@@ -2,6 +2,7 @@ package com.tigcal.utils;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
@@ -78,6 +79,12 @@ public class FlashlightActivity extends AppCompatActivity {
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                if (checked) {
+                    toggleButton.setBackgroundColor(ContextCompat.getColor(FlashlightActivity.this, R.color.fl_primary));
+                } else {
+                    toggleButton.setBackgroundColor(Color.WHITE);
+                }
+
                 try {
                     cameraManager.setTorchMode(cameraId, checked);
                 } catch (CameraAccessException e) {

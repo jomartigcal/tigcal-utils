@@ -30,10 +30,10 @@
         android:id="@+id/flashlight_button"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/fl_primary"
+        android:background="#ffffff"
         android:checked="false"
         android:text="@string/fl_label"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="30sp"
         android:textOff="@string/fl_turn_on"
         android:textOn="@string/fl_turn_off" />
 
