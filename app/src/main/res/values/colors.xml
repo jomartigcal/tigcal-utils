@@ -7,9 +7,15 @@
     <color name="batt_primary">#2196F3</color>
     <color name="batt_primary_dark">#1976D2</color>
     <color name="batt_primary_light">#BBDEFB</color>
+
+    <color name="fl_primary">#FFEB3B</color>
+    <color name="fl_primary_dark">#FBC02D</color>
+    <color name="fl_primary_light">#FFF9C4</color>
+
     <color name="accent">#4CAF50</color>
     <color name="primary_text">#212121</color>
     <color name="secondary_text">#757575</color>
     <color name="icons">#212121</color>
     <color name="divider">#BDBDBD</color>
+
 </resources>

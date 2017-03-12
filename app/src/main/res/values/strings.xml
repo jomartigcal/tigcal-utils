@@ -3,6 +3,7 @@
 
     <string name="app_battery">Battery</string>
     <string name="app_bill_calc">Bill Calculator</string>
+    <string name="app_flashlight">Flashlight</string>
 
     <string name="bc_kwh_total">Total kWH</string>
     <string name="bc_kwh_tigcal">Tigcal kWH</string>
@@ -11,5 +12,10 @@
     <string name="bc_amount_total">Total Amount</string>
     <string name="bc_amount_tigcal">Tigcal Amount</string>
     <string name="bc_amount_neighbor">Neighbor Amount</string>
+
+    <string name="fl_camera_permission">Please grant camera permission to use the flashlight</string>
+    <string name="fl_label">Turn Flashlight on/off</string>
+    <string name="fl_turn_on">Turn on Flashlight</string>
+    <string name="fl_turn_off">Turn off Flashlight</string>
 
 </resources>
