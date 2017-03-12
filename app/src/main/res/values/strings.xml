@@ -1,12 +1,14 @@
 <resources>
-    <string name="app_name">Bill Calculator</string>
+    <string name="app_name">Tigcal Utilities</string>
 
-    <string name="kwh_total">Total kWH</string>
-    <string name="kwh_tigcal">Tigcal kWH</string>
-    <string name="kwh_neighbor">Neighbor kWH</string>
+    <string name="app_bill_calc">Bill Calculator</string>
 
-    <string name="amount_total">Total Amount</string>
-    <string name="amount_tigcal">Tigcal Amount</string>
-    <string name="amount_neighbor">Neighbor Amount</string>
-        
+    <string name="bc_kwh_total">Total kWH</string>
+    <string name="bc_kwh_tigcal">Tigcal kWH</string>
+    <string name="bc_kwh_neighbor">Neighbor kWH</string>
+
+    <string name="bc_amount_total">Total Amount</string>
+    <string name="bc_amount_tigcal">Tigcal Amount</string>
+    <string name="bc_amount_neighbor">Neighbor Amount</string>
+
 </resources>

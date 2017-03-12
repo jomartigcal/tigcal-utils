@@ -4,7 +4,7 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.tigcal.billcalc"
+        applicationId "com.tigcal.utils"
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
@@ -21,7 +21,7 @@ android {
 
 
 ext {
-    supportLibraryVersion = '25.1.0'
+    supportLibraryVersion = '25.2.0'
     playServicesVersion = '9.8.0'
 }
 

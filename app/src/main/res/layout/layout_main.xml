@@ -27,7 +27,7 @@
                     android:id="@+id/total_kwh_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/kwh_total"
+                    android:text="@string/bc_kwh_total"
                     android:textSize="19sp" />
 
                 <EditText
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/total_kwh_text"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:text="@string/amount_total"
+                    android:text="@string/bc_amount_total"
                     android:textSize="19sp" />
 
                 <EditText
@@ -75,7 +75,7 @@
                     android:id="@+id/tigcal_kwh_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/kwh_tigcal"
+                    android:text="@string/bc_kwh_tigcal"
                     android:textSize="19sp" />
 
                 <EditText
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tigcal_kwh_text"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:text="@string/amount_tigcal"
+                    android:text="@string/bc_amount_tigcal"
                     android:textSize="19sp" />
 
                 <TextView
@@ -124,7 +124,7 @@
                     android:id="@+id/neighbor_kwh_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/kwh_neighbor"
+                    android:text="@string/bc_kwh_neighbor"
                     android:textSize="19sp" />
 
                 <EditText
@@ -140,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/neighbor_kwh_text"
                     android:layout_marginTop="@dimen/activity_vertical_margin"
-                    android:text="@string/amount_neighbor"
+                    android:text="@string/bc_amount_neighbor"
                     android:textSize="19sp" />
 
                 <TextView

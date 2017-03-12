@@ -1,4 +1,4 @@
-package com.tigcal.billcalc;
+package com.tigcal.utils;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,12 +10,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.tigcal.billcalc.R;
+
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
-public class MainActivity extends AppCompatActivity {
+public class BillCalcActivity extends AppCompatActivity {
     private static final DecimalFormat DECIMAL_FORMAT = new DecimalFormat("#,##0.00");
     public static final String COMMA = ",";
     public static final String EMPTY_STRING = "";
@@ -142,12 +144,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         preferences.edit()
-                .putString(getString(R.string.kwh_total), totalKwhText.getText().toString())
-                .putString(getString(R.string.amount_total), totalAmountText.getText().toString())
-                .putString(getString(R.string.kwh_tigcal), tigcalKwhText.getText().toString())
-                .putString(getString(R.string.kwh_neighbor), neighborKwhText.getText().toString())
-                .putString(getString(R.string.amount_tigcal), tigcalAmountText.getText().toString())
-                .putString(getString(R.string.amount_neighbor), neighborAmountText.getText().toString())
+                .putString(getString(R.string.bc_kwh_total), totalKwhText.getText().toString())
+                .putString(getString(R.string.bc_amount_total), totalAmountText.getText().toString())
+                .putString(getString(R.string.bc_kwh_tigcal), tigcalKwhText.getText().toString())
+                .putString(getString(R.string.bc_kwh_neighbor), neighborKwhText.getText().toString())
+                .putString(getString(R.string.bc_amount_tigcal), tigcalAmountText.getText().toString())
+                .putString(getString(R.string.bc_amount_neighbor), neighborAmountText.getText().toString())
                 .apply();
 
         super.onDestroy();
@@ -161,12 +163,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayCachedBill() {
-        totalKwhText.setText(preferences.getString(getString(R.string.kwh_total), EMPTY_STRING));
-        totalAmountText.setText(preferences.getString(getString(R.string.amount_total), EMPTY_STRING));
-        tigcalKwhText.setText(preferences.getString(getString(R.string.kwh_tigcal), EMPTY_STRING));
-        neighborKwhText.setText(preferences.getString(getString(R.string.kwh_neighbor), EMPTY_STRING));
-        tigcalAmountText.setText(preferences.getString(getString(R.string.amount_tigcal), EMPTY_STRING));
-        neighborAmountText.setText(preferences.getString(getString(R.string.amount_neighbor), EMPTY_STRING));
+        totalKwhText.setText(preferences.getString(getString(R.string.bc_kwh_total), EMPTY_STRING));
+        totalAmountText.setText(preferences.getString(getString(R.string.bc_amount_total), EMPTY_STRING));
+        tigcalKwhText.setText(preferences.getString(getString(R.string.bc_kwh_tigcal), EMPTY_STRING));
+        neighborKwhText.setText(preferences.getString(getString(R.string.bc_kwh_neighbor), EMPTY_STRING));
+        tigcalAmountText.setText(preferences.getString(getString(R.string.bc_amount_tigcal), EMPTY_STRING));
+        neighborAmountText.setText(preferences.getString(getString(R.string.bc_amount_neighbor), EMPTY_STRING));
     }
 
     private BigDecimal computeAmountDue(BigDecimal kwh) {
