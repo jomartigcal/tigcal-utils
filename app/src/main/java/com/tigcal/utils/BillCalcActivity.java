@@ -10,8 +10,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.tigcal.billcalc.R;
-
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.math.RoundingMode;
