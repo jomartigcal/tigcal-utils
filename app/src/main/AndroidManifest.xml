@@ -11,7 +11,21 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".BillCalcActivity"
-            android:label="@string/app_bill_calc">
+            android:icon="@mipmap/ic_bc_launcher"
+            android:label="@string/app_bill_calc"
+            android:roundIcon="@mipmap/ic_bc_launcher_round">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".BatteryActivity"
+            android:icon="@mipmap/ic_b_launcher"
+            android:label="@string/app_battery"
+            android:roundIcon="@mipmap/ic_b_launcher_round"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

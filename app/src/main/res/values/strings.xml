@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Tigcal Utilities</string>
 
+    <string name="app_battery">Battery</string>
     <string name="app_bill_calc">Bill Calculator</string>
 
     <string name="bc_kwh_total">Total kWH</string>
