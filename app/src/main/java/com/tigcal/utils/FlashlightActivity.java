@@ -12,18 +12,19 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.widget.CompoundButton;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 public class FlashlightActivity extends AppCompatActivity {
     private static final String TAG = "FlashlightActivity";
 
     private static final int REQUEST_CAMERA = 0;
 
-    private ToggleButton toggleButton;
+    private TextView toggleView;
     private CameraManager cameraManager;
     private String cameraId;
+    private boolean flashlightOn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class FlashlightActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        toggleButton = (ToggleButton) findViewById(R.id.flashlight_button);
+        toggleView = (TextView) findViewById(R.id.flashlight_button);
 
         cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
@@ -42,16 +43,11 @@ public class FlashlightActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        toggleView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                if (checked) {
-                    toggleButton.setBackgroundColor(ContextCompat.getColor(FlashlightActivity.this, R.color.fl_primary));
-                } else {
-                    toggleButton.setBackgroundColor(Color.WHITE);
-                }
-
-                toggleCamera2Flashlight(checked);
+            public void onClick(View v) {
+                flashlightOn = !flashlightOn;
+                toggleCamera2Flashlight(flashlightOn);
             }
         });
     }
@@ -65,13 +61,14 @@ public class FlashlightActivity extends AppCompatActivity {
                     new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA);
         }
 
-        toggleCamera2Flashlight(false);
+        flashlightOn = false;
+        toggleCamera2Flashlight(flashlightOn);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        toggleButton.setChecked(false);
+        toggleCamera2Flashlight(false);
     }
 
     @Override
@@ -91,6 +88,11 @@ public class FlashlightActivity extends AppCompatActivity {
     private void toggleCamera2Flashlight(boolean checked) {
         try {
             cameraManager.setTorchMode(cameraId, checked);
+            toggleView.setBackgroundColor(checked ?
+                    ContextCompat.getColor(FlashlightActivity.this, R.color.fl_primary) :
+                    Color.WHITE
+            );
+            toggleView.setText(checked ? getString(R.string.fl_turn_off) : getString(R.string.fl_turn_on));
         } catch (CameraAccessException e) {
             Log.d(TAG, "toggleCamera2Flashlight CameraAccessException:" + e.getMessage());
         }

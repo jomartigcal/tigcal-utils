@@ -20,21 +20,19 @@
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:layout_collapseMode="pin"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:titleTextColor="@android:color/black" />
     </android.support.design.widget.AppBarLayout>
 
-    <ToggleButton
+    <TextView
         android:id="@+id/flashlight_button"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ffffff"
         android:checked="false"
+        android:gravity="center"
         android:text="@string/fl_label"
-        android:textSize="30sp"
-        android:textOff="@string/fl_turn_on"
-        android:textOn="@string/fl_turn_off" />
+        android:textSize="30sp" />
 
 </android.support.design.widget.CoordinatorLayout>
