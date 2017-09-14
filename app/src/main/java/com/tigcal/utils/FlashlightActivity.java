@@ -35,7 +35,25 @@ public class FlashlightActivity extends AppCompatActivity {
 
         toggleButton = (ToggleButton) findViewById(R.id.flashlight_button);
 
-        toggleCamera2Flashlight();
+        cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        try {
+            cameraId = cameraManager.getCameraIdList()[0];
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+
+        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                if (checked) {
+                    toggleButton.setBackgroundColor(ContextCompat.getColor(FlashlightActivity.this, R.color.fl_primary));
+                } else {
+                    toggleButton.setBackgroundColor(Color.WHITE);
+                }
+
+                toggleCamera2Flashlight(checked);
+            }
+        });
     }
 
     @Override
@@ -46,6 +64,8 @@ public class FlashlightActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA);
         }
+
+        toggleCamera2Flashlight(false);
     }
 
     @Override
@@ -68,29 +88,11 @@ public class FlashlightActivity extends AppCompatActivity {
         }
     }
 
-    private void toggleCamera2Flashlight() {
-        cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+    private void toggleCamera2Flashlight(boolean checked) {
         try {
-            cameraId = cameraManager.getCameraIdList()[0];
+            cameraManager.setTorchMode(cameraId, checked);
         } catch (CameraAccessException e) {
-            e.printStackTrace();
+            Log.d(TAG, "toggleCamera2Flashlight CameraAccessException:" + e.getMessage());
         }
-
-        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                if (checked) {
-                    toggleButton.setBackgroundColor(ContextCompat.getColor(FlashlightActivity.this, R.color.fl_primary));
-                } else {
-                    toggleButton.setBackgroundColor(Color.WHITE);
-                }
-
-                try {
-                    cameraManager.setTorchMode(cameraId, checked);
-                } catch (CameraAccessException e) {
-                    Log.d(TAG, "toggleCamera2Flashlight CameraAccessException:" + e.getMessage());
-                }
-            }
-        });
     }
 }
