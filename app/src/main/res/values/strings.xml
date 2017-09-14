@@ -6,11 +6,11 @@
     <string name="app_flashlight">Flashlight</string>
 
     <string name="bc_kwh_total">Total kWH</string>
-    <string name="bc_kwh_tigcal">Tigcal kWH</string>
+    <string name="bc_kwh_tigcal">Home kWH</string>
     <string name="bc_kwh_neighbor">Neighbor kWH</string>
 
     <string name="bc_amount_total">Total Amount</string>
-    <string name="bc_amount_tigcal">Tigcal Amount</string>
+    <string name="bc_amount_tigcal">Home Amount</string>
     <string name="bc_amount_neighbor">Neighbor Amount</string>
 
     <string name="fl_camera_permission">Please grant camera permission to use the flashlight.</string>
