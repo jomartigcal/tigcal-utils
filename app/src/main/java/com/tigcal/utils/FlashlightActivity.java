@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -20,7 +21,7 @@ import android.widget.Toast;
 public class FlashlightActivity extends AppCompatActivity {
     private static final String TAG = "FlashlightActivity";
     private static final String BACK_CAMERA = "0";
-    
+
     private static final int REQUEST_CAMERA = 0;
 
     private TextView toggleView;
@@ -66,20 +67,21 @@ public class FlashlightActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this,
-                    new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA);
-        }
 
         flashlightOn = false;
-        toggleCamera2Flashlight(flashlightOn);
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED) {
+            switchFlashlight(flashlightOn);
+        }
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
-        toggleCamera2Flashlight(false);
+    protected void onStop() {
+        super.onStop();
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED) {
+            switchFlashlight(false);
+        }
     }
 
     @Override
@@ -88,9 +90,13 @@ public class FlashlightActivity extends AppCompatActivity {
         switch (requestCode) {
             case REQUEST_CAMERA:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    //TODO
+                    switchFlashlight(flashlightOn);
                 } else {
-                    Toast.makeText(this, getString(R.string.fl_camera_permission), Toast.LENGTH_SHORT).show();
+                    new AlertDialog.Builder(this)
+                            .setTitle(getString(R.string.app_flashlight))
+                            .setMessage(getString(R.string.fl_camera_permission))
+                            .setPositiveButton(getString(R.string.fl_okay), null)
+                            .create().show();
                 }
                 break;
         }
@@ -101,18 +107,29 @@ public class FlashlightActivity extends AppCompatActivity {
     }
 
     private void toggleCamera2Flashlight(boolean checked) {
-        if(cameraId == null || !flashAvailable) {
+        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA);
+            return;
+        }
+
+        switchFlashlight(checked);
+    }
+
+    private void switchFlashlight(boolean onOrOff) {
+        if (cameraId == null || !flashAvailable) {
             displayCameraError();
             return;
         }
 
         try {
-            cameraManager.setTorchMode(cameraId, checked);
-            toggleView.setBackgroundColor(checked ?
+            cameraManager.setTorchMode(cameraId, onOrOff);
+            toggleView.setBackgroundColor(onOrOff ?
                     ContextCompat.getColor(FlashlightActivity.this, R.color.fl_primary) :
                     Color.WHITE
             );
-            toggleView.setText(checked ? getString(R.string.fl_turn_off) : getString(R.string.fl_turn_on));
+            toggleView.setText(onOrOff ? getString(R.string.fl_turn_off) : getString(R.string.fl_turn_on));
         } catch (CameraAccessException e) {
             displayCameraError();
             Log.d(TAG, "toggleCamera2Flashlight CameraAccessException:" + e.getMessage());

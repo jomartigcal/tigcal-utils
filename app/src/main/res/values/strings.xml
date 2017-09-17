@@ -18,5 +18,6 @@
     <string name="fl_label">Turn Flashlight on/off</string>
     <string name="fl_turn_on">Turn on Flashlight</string>
     <string name="fl_turn_off">Turn off Flashlight</string>
+    <string name="fl_okay">Okay</string>
 
 </resources>
