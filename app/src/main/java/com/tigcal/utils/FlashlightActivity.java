@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -18,29 +19,39 @@ import android.widget.Toast;
 
 public class FlashlightActivity extends AppCompatActivity {
     private static final String TAG = "FlashlightActivity";
-
+    private static final String BACK_CAMERA = "0";
+    
     private static final int REQUEST_CAMERA = 0;
 
     private TextView toggleView;
     private CameraManager cameraManager;
     private String cameraId;
     private boolean flashlightOn;
+    private boolean flashAvailable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashlight);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        toggleView = (TextView) findViewById(R.id.flashlight_button);
+        toggleView = findViewById(R.id.flashlight_button);
 
         cameraManager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
             cameraId = cameraManager.getCameraIdList()[0];
         } catch (CameraAccessException e) {
-            e.printStackTrace();
+            Log.d(TAG, "CameraAccessException while accessing camera:" + e.getMessage());
+        }
+
+        flashAvailable = false;
+        try {
+            CameraCharacteristics cameraCharacteristics = cameraManager.getCameraCharacteristics(BACK_CAMERA);
+            flashAvailable = cameraCharacteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
+        } catch (CameraAccessException e) {
+            Log.d(TAG, "CameraAccessException while accessing camera characteristics:" + e.getMessage());
         }
 
         toggleView.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +96,16 @@ public class FlashlightActivity extends AppCompatActivity {
         }
     }
 
+    private void displayCameraError() {
+        Toast.makeText(this, getString(R.string.fl_camera_error), Toast.LENGTH_SHORT).show();
+    }
+
     private void toggleCamera2Flashlight(boolean checked) {
+        if(cameraId == null || !flashAvailable) {
+            displayCameraError();
+            return;
+        }
+
         try {
             cameraManager.setTorchMode(cameraId, checked);
             toggleView.setBackgroundColor(checked ?
@@ -94,6 +114,7 @@ public class FlashlightActivity extends AppCompatActivity {
             );
             toggleView.setText(checked ? getString(R.string.fl_turn_off) : getString(R.string.fl_turn_on));
         } catch (CameraAccessException e) {
+            displayCameraError();
             Log.d(TAG, "toggleCamera2Flashlight CameraAccessException:" + e.getMessage());
         }
     }
