@@ -83,7 +83,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/tigcal_kwh_label"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true" />
 
                 <TextView
                     android:id="@+id/tigcal_amount_label"
@@ -132,7 +133,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/neighbor_kwh_label"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"
+                    android:selectAllOnFocus="true" />
 
                 <TextView
                     android:id="@+id/neighbor_amount_label"
