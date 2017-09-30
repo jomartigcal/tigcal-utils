@@ -1,6 +1,11 @@
 Tigcal Utilities
 ======================
 
+2.0.1
+    Added Firebase
+    Highlighting Bill Calculator text boxes when focusing them (to allow easy delete of contents)
+    Updating launcher icons and other assets
+
 2.0
     Repackaging as Tigcal Utilities
     Adding Battery and Flashlight apps
