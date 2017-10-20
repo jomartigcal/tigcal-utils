@@ -173,7 +173,7 @@ public class BillCalcActivity extends AppCompatActivity {
         totalKwh = getInteger(totalKwhText.getText().toString());
         totalAmount = getDecimalValue(totalAmountText.getText().toString());
 
-        if (totalAmount.equals(BigDecimal.ZERO)) {
+        if (totalKwh <= 0 || totalAmount.equals(BigDecimal.ZERO)) {
             return BigDecimal.ZERO;
         }
 
