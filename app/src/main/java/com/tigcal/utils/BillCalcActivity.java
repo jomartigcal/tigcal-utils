@@ -37,15 +37,15 @@ public class BillCalcActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        totalKwhText = (TextView) findViewById(R.id.total_kwh_text);
-        totalAmountText = (TextView) findViewById(R.id.total_amount_text);
-        tigcalKwhText = (TextView) findViewById(R.id.tigcal_kwh_text);
-        neighborKwhText = (TextView) findViewById(R.id.neighbor_kwh_text);
-        tigcalAmountText = (TextView) findViewById(R.id.tigcal_amount_text);
-        neighborAmountText = (TextView) findViewById(R.id.neighbor_amount_text);
+        totalKwhText = findViewById(R.id.total_kwh_text);
+        totalAmountText = findViewById(R.id.total_amount_text);
+        tigcalKwhText = findViewById(R.id.tigcal_kwh_text);
+        neighborKwhText = findViewById(R.id.neighbor_kwh_text);
+        tigcalAmountText = findViewById(R.id.tigcal_amount_text);
+        neighborAmountText = findViewById(R.id.neighbor_amount_text);
 
         preferences = getSharedPreferences(getString(R.string.app_name), MODE_PRIVATE);
 
