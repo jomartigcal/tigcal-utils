@@ -1,6 +1,9 @@
 Tigcal Utilities
 ======================
 
+2.0.2
+    Adding handling when total kWH inputted is zero resulting to division by zero error
+
 2.0.1
     Added Firebase
     Highlighting Bill Calculator text boxes when focusing them (to allow easy delete of contents)
