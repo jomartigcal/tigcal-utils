@@ -33,6 +33,7 @@ public class FlashlightActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.AppTheme_Flashlight);
         setContentView(R.layout.activity_flashlight);
 
         Toolbar toolbar = findViewById(R.id.toolbar);

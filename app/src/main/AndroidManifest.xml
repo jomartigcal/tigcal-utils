@@ -17,7 +17,7 @@
             android:label="@string/app_bill_calc"
             android:roundIcon="@mipmap/ic_bc_launcher_round"
             android:taskAffinity="com.tigcal.utils.billcalc"
-            android:theme="@style/AppTheme.BillCalc">
+            android:theme="@style/AppTheme.BillCalc.LaunchScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,7 +44,7 @@
             android:roundIcon="@mipmap/ic_fl_launcher_round"
             android:screenOrientation="sensorPortrait"
             android:taskAffinity="com.tigcal.utils.flash"
-            android:theme="@style/AppTheme.Flashlight">
+            android:theme="@style/AppTheme.Flashlight.LaunchScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
