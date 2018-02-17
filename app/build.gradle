@@ -8,7 +8,7 @@ def versionBuild = 0
 
 android {
     compileSdkVersion 27
-    buildToolsVersion '27.0.2'
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         applicationId "com.tigcal.utils"
@@ -31,7 +31,7 @@ android {
 
 ext {
     supportLibraryVersion = '27.0.2'
-    playServicesVersion = '11.6.2'
+    playServicesVersion = '11.8.0'
 }
 
 dependencies {
