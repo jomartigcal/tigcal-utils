@@ -1,6 +1,9 @@
 Tigcal Utilities
 ======================
 
+2.0.4
+    Replacing Firebase Crash Reporting with Firebase Crashlytics
+
 2.0.3
     Adding launch screen for Flashlight and Bill Calculator apps
 
