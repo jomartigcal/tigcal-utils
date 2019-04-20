@@ -3,7 +3,7 @@ package com.tigcal.utils;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class BatteryActivity extends AppCompatActivity {
 
