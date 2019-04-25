@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppTheme.BillCalc" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme.BillCalc" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/bc_primary</item>
         <item name="colorPrimaryDark">@color/bc_primary_dark</item>
         <item name="colorAccent">@color/accent</item>
@@ -13,7 +13,7 @@
         <item name="android:windowBackground">@drawable/bc_launch_screen</item>
     </style>
 
-    <style name="AppTheme.Battery" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme.Battery" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/batt_primary</item>
         <item name="colorPrimaryDark">@color/batt_primary_dark</item>
         <item name="colorAccent">@color/accent</item>
@@ -23,7 +23,7 @@
         <item name="android:windowDisablePreview">true</item>
     </style>
 
-    <style name="AppTheme.Flashlight" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme.Flashlight" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <item name="colorPrimary">@color/fl_primary</item>
         <item name="colorPrimaryDark">@color/fl_primary</item>
         <item name="colorAccent">@color/accent</item>
