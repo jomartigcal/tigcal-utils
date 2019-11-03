@@ -2,16 +2,7 @@
     <string name="app_name">Tigcal Utilities</string>
 
     <string name="app_battery">Battery</string>
-    <string name="app_bill_calc">Bill Calculator</string>
     <string name="app_flashlight">Flashlight</string>
-
-    <string name="bc_kwh_total">Total kWH</string>
-    <string name="bc_kwh_tigcal">Home kWH</string>
-    <string name="bc_kwh_neighbor">Neighbor kWH</string>
-
-    <string name="bc_amount_total">Total Amount</string>
-    <string name="bc_amount_tigcal">Home Amount</string>
-    <string name="bc_amount_neighbor">Neighbor Amount</string>
 
     <string name="fl_camera_permission">Please allow the app to use the camera to be able to turn on/off the flashlight.</string>
     <string name="fl_camera_error">Unable to access the camera and/or the flash</string>
