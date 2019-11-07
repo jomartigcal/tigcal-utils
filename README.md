@@ -1,9 +1,13 @@
 # Tigcal Utilities
 
-Tigcal Utilities is a collection of utility mini-apps. This app includes the following utilies:
+Tigcal Utilities is a collection of utility mini-apps. It includes the following utility apps:
 
   * Battery
   * Flashlight
+
+Learn more about the story of Tigcal Utilities [here](https://jomar.tigcal.com/2017/10/tigcal-utilities.html).
+
+![Feature Graphic](art/feature-graphic.png)
 
 ## Battery
 
