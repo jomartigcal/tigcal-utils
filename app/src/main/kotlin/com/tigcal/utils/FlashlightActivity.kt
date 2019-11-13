@@ -94,20 +94,20 @@ class FlashlightActivity : AppCompatActivity() {
         switchFlashlight(checked)
     }
 
-    private fun switchFlashlight(onOrOff: Boolean) {
+    private fun switchFlashlight(isOn: Boolean) {
         if (cameraId == null || cameraManager == null || !flashAvailable) {
             displayCameraError()
             return
         }
 
         try {
-            cameraManager!!.setTorchMode(cameraId!!, onOrOff)
-            flashlight_button.setBackgroundColor(if (onOrOff)
+            cameraManager!!.setTorchMode(cameraId!!, isOn)
+            flashlight_button.setBackgroundColor(if (isOn)
                 ContextCompat.getColor(this@FlashlightActivity, R.color.fl_primary)
             else
                 Color.WHITE
             )
-            flashlight_button.text = if (onOrOff) getString(R.string.fl_turn_off) else getString(R.string.fl_turn_on)
+            flashlight_button.text = if (isOn) getString(R.string.fl_turn_off) else getString(R.string.fl_turn_on)
         } catch (e: CameraAccessException) {
             displayCameraError()
             Log.d(TAG, "switchFlashlight CameraAccessException:" + e.message)
