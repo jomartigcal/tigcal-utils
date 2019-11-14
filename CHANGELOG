@@ -1,6 +1,10 @@
 Tigcal Utilities
 ======================
 
+2.1.0
+    Removing Bill Calculator
+    Migrating code to Kotlin
+
 2.0.4
     Replacing Firebase Crash Reporting with Firebase Crashlytics
 
