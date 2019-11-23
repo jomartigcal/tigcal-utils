@@ -12,19 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
-            android:name=".BatteryActivity"
-            android:icon="@mipmap/ic_b_launcher"
-            android:label="@string/app_battery"
-            android:roundIcon="@mipmap/ic_b_launcher_round"
-            android:taskAffinity="com.tigcal.utils.batt"
-            android:theme="@style/AppTheme.Battery">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".FlashlightActivity"
             android:icon="@mipmap/ic_fl_launcher"
             android:label="@string/app_flashlight"
@@ -32,6 +19,19 @@
             android:screenOrientation="sensorPortrait"
             android:taskAffinity="com.tigcal.utils.flash"
             android:theme="@style/AppTheme.Flashlight.LaunchScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".BatteryActivity"
+            android:icon="@mipmap/ic_b_launcher"
+            android:label="@string/app_battery"
+            android:roundIcon="@mipmap/ic_b_launcher_round"
+            android:taskAffinity="com.tigcal.utils.batt"
+            android:theme="@style/AppTheme.Battery">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
