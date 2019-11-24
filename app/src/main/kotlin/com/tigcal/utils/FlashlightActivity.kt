@@ -8,7 +8,9 @@ import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraManager
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.widget.Toast
+import androidx.annotation.AttrRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -105,14 +107,29 @@ class FlashlightActivity : AppCompatActivity() {
             flashlight_button.setBackgroundColor(if (isOn)
                 ContextCompat.getColor(this@FlashlightActivity, R.color.fl_primary)
             else
-                Color.WHITE
+                getThemeColor(R.attr.colorSurface, Color.WHITE)
             )
             flashlight_button.text = if (isOn) getString(R.string.fl_turn_off) else getString(R.string.fl_turn_on)
+            flashlight_button.setTextColor(if (isOn)
+                ContextCompat.getColor(this@FlashlightActivity, R.color.primary_text)
+            else
+                getThemeColor(R.attr.colorOnSurface, Color.BLACK)
+            )
         } catch (e: CameraAccessException) {
             displayCameraError()
             Log.d(TAG, "switchFlashlight CameraAccessException:" + e.message)
         }
 
+    }
+
+    private fun getThemeColor(@AttrRes themeColor: Int, defaultColor: Int): Int {
+        val surfaceValue = TypedValue()
+        val resolved = theme.resolveAttribute(themeColor, surfaceValue, true)
+        return if (resolved) {
+            ContextCompat.getColor(this, surfaceValue.resourceId)
+        } else {
+            defaultColor
+        }
     }
 
     companion object {

@@ -1,21 +1,17 @@
 <resources>
 
-    <style name="AppTheme.Battery" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="AppTheme.Battery" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/batt_primary</item>
         <item name="colorPrimaryDark">@color/batt_primary_dark</item>
         <item name="colorAccent">@color/accent</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
         <item name="colorButtonNormal">@color/batt_primary</item>
         <item name="android:windowDisablePreview">true</item>
     </style>
 
-    <style name="AppTheme.Flashlight" parent="Theme.MaterialComponents.Light.DarkActionBar">
+    <style name="AppTheme.Flashlight" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/fl_primary</item>
         <item name="colorPrimaryDark">@color/fl_primary</item>
         <item name="colorAccent">@color/accent</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
         <item name="colorButtonNormal">@color/fl_primary</item>
     </style>
 
