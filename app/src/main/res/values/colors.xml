@@ -5,8 +5,8 @@
     <color name="batt_primary_light">#BBDEFB</color>
 
     <color name="fl_primary">#FFEB3B</color>
-    <color name="fl_primary_dark">#FBC02D</color>
-    <color name="fl_primary_light">#FFF9C4</color>
+    <color name="fl_primary_dark">#C8B900</color>
+    <color name="fl_primary_light">#FFFF72</color>
 
     <color name="accent">#4CAF50</color>
     <color name="primary_text">#212121</color>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fl_primary">#FFF59D</color>
+    <color name="fl_primary_dark">#CBC26D</color>
+    <color name="fl_primary_light">#FFFFCF</color>
+
+    <color name="accent">#A5D6A7</color>
+</resources>
+
