@@ -32,7 +32,7 @@
         android:checked="false"
         android:gravity="center"
         android:text="@string/fl_label"
-        android:textColor="@color/primary_text"
+        android:textColor="?colorOnSurface"
         android:textSize="30sp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
