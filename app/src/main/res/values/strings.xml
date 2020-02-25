@@ -11,4 +11,7 @@
     <string name="fl_turn_off">Turn off Flashlight</string>
     <string name="fl_okay">Okay</string>
 
+
+    <string name="send_feedback_header">Send Feedback</string>
+    <string name="send_feedback_subject">Feedback: %s Android App</string>
 </resources>

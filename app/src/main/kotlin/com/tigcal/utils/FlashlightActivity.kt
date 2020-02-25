@@ -1,14 +1,19 @@
 package com.tigcal.utils
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Color
 import android.hardware.camera2.CameraAccessException
 import android.hardware.camera2.CameraCharacteristics
 import android.hardware.camera2.CameraManager
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.annotation.AttrRes
 import androidx.appcompat.app.AlertDialog
@@ -51,6 +56,20 @@ class FlashlightActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.menu_feedback -> {
+                sendFeedback()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
     override fun onStart() {
         super.onStart()
 
@@ -130,6 +149,38 @@ class FlashlightActivity : AppCompatActivity() {
         } else {
             defaultColor
         }
+    }
+
+    private fun sendFeedback() {
+        val deviceInfoBuilder = StringBuilder()
+        deviceInfoBuilder.append("\n\n--------------------")
+        deviceInfoBuilder.append("\nDevice Information:")
+        try {
+            deviceInfoBuilder.append("\n App Version: ")
+            deviceInfoBuilder.append(packageManager.getPackageInfo(packageName, 0).versionName)
+        } catch (e: PackageManager.NameNotFoundException) {
+            Log.e(TAG, "Package name not found")
+        }
+        deviceInfoBuilder.append("\n OS Version: ")
+                .append(System.getProperty("os.version"))
+                .append("(")
+                .append(Build.VERSION.INCREMENTAL)
+                .append(")")
+        deviceInfoBuilder.append("\n OS API Level: ")
+                .append(Build.VERSION.SDK_INT)
+        deviceInfoBuilder.append("\n Manufacturer: ")
+                .append(Build.MANUFACTURER)
+        deviceInfoBuilder.append("\n Model (Product): ")
+                .append(Build.MODEL)
+                .append(" (")
+                .append(Build.PRODUCT)
+                .append(")")
+        val intent = Intent(Intent.ACTION_SENDTO)
+        intent.data = Uri.parse("mailto:")
+        intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("jomar@tigcal.com"))
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.send_feedback_subject, getString(R.string.app_name)))
+        intent.putExtra(Intent.EXTRA_TEXT, deviceInfoBuilder.toString())
+        startActivity(Intent.createChooser(intent, getString(R.string.send_feedback_header)))
     }
 
     companion object {
