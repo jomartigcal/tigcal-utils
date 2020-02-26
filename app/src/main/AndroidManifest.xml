@@ -6,6 +6,7 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <application
+        android:name="TigcalUtilsApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -37,6 +38,15 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/settings_header"
+            android:theme="@style/AppTheme.Flashlight"
+            android:parentActivityName=".FlashlightActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".FlashlightActivity" />
         </activity>
     </application>
 
