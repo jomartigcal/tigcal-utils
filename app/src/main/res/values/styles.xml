@@ -13,9 +13,17 @@
         <item name="colorPrimaryDark">@color/fl_primary</item>
         <item name="colorAccent">@color/accent</item>
         <item name="colorButtonNormal">@color/fl_primary</item>
+
+        <item name="alertDialogTheme">@style/AlertDialogTheme</item>
     </style>
 
     <style name="AppTheme.Flashlight.LaunchScreen">
         <item name="android:windowBackground">@drawable/fl_launch_screen</item>
+    </style>
+
+    <style name="AlertDialogTheme" parent="Theme.MaterialComponents.DayNight.Dialog">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorPrimaryDark">@color/accent</item>
+        <item name="colorAccent">@color/accent</item>
     </style>
 </resources>
