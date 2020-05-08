@@ -156,35 +156,32 @@ class FlashlightActivity : AppCompatActivity() {
     }
 
     private fun sendFeedback() {
-        val deviceInfoBuilder = StringBuilder()
-        deviceInfoBuilder.append("\n\n--------------------")
-        deviceInfoBuilder.append("\nDevice Information:")
-        try {
-            deviceInfoBuilder.append("\n App Version: ")
-            deviceInfoBuilder.append(packageManager.getPackageInfo(packageName, 0).versionName)
-        } catch (e: PackageManager.NameNotFoundException) {
-            Log.e(TAG, "Package name not found")
-        }
-        deviceInfoBuilder.append("\n OS Version: ")
-                .append(System.getProperty("os.version"))
-                .append("(")
-                .append(Build.VERSION.INCREMENTAL)
-                .append(")")
-        deviceInfoBuilder.append("\n OS API Level: ")
-                .append(Build.VERSION.SDK_INT)
-        deviceInfoBuilder.append("\n Manufacturer: ")
-                .append(Build.MANUFACTURER)
-        deviceInfoBuilder.append("\n Model (Product): ")
-                .append(Build.MODEL)
-                .append(" (")
-                .append(Build.PRODUCT)
-                .append(")")
+        val deviceInfo = """
+
+            --------------------
+            Device Information:
+            App Version: ${getPackageVersion()}
+            OS Version: ${System.getProperty("os.version")} (${Build.VERSION.INCREMENTAL})
+            OS API Level: ${Build.VERSION.SDK_INT}
+            Manufacturer: ${Build.MANUFACTURER}
+            Model (Product): ${Build.MODEL} (${Build.PRODUCT})
+        """.trimIndent()
+
         val intent = Intent(Intent.ACTION_SENDTO)
         intent.data = Uri.parse("mailto:")
         intent.putExtra(Intent.EXTRA_EMAIL, arrayOf("jomar@tigcal.com"))
         intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.send_feedback_subject, getString(R.string.app_name)))
-        intent.putExtra(Intent.EXTRA_TEXT, deviceInfoBuilder.toString())
+        intent.putExtra(Intent.EXTRA_TEXT, deviceInfo)
         startActivity(Intent.createChooser(intent, getString(R.string.send_feedback_header)))
+    }
+
+    private fun getPackageVersion(): String {
+        return try {
+            packageManager.getPackageInfo(packageName, 0).versionName
+        } catch (e: PackageManager.NameNotFoundException) {
+            Log.e(TAG, "package name not found")
+            ""
+        }
     }
 
     companion object {
