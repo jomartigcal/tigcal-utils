@@ -37,15 +37,16 @@ class FlashlightActivity : AppCompatActivity() {
 
         cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
         try {
-            cameraId = cameraManager!!.cameraIdList[0]
+            cameraId = cameraManager?.cameraIdList?.get(0)
         } catch (e: CameraAccessException) {
             Log.d(TAG, "CameraAccessException while accessing camera:" + e.message)
         }
 
         flashAvailable = false
         try {
-            val cameraCharacteristics = cameraManager!!.getCameraCharacteristics(BACK_CAMERA)
-            flashAvailable = cameraCharacteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE)!!
+            val cameraCharacteristics = cameraManager?.getCameraCharacteristics(BACK_CAMERA)
+            flashAvailable = cameraCharacteristics?.get(CameraCharacteristics.FLASH_INFO_AVAILABLE)
+                    ?: false
         } catch (e: CameraAccessException) {
             Log.d(TAG, "CameraAccessException while accessing camera characteristics:" + e.message)
         }
@@ -74,6 +75,7 @@ class FlashlightActivity : AppCompatActivity() {
             else -> super.onOptionsItemSelected(item)
         }
     }
+
     override fun onStart() {
         super.onStart()
 
@@ -126,7 +128,8 @@ class FlashlightActivity : AppCompatActivity() {
         }
 
         try {
-            cameraManager!!.setTorchMode(cameraId!!, isOn)
+            cameraId?.apply { cameraManager?.setTorchMode(this, isOn) }
+
             flashlight_button.setBackgroundColor(if (isOn)
                 ContextCompat.getColor(this@FlashlightActivity, R.color.fl_primary)
             else
