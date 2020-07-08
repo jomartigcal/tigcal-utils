@@ -17,7 +17,6 @@
             android:icon="@mipmap/ic_fl_launcher"
             android:label="@string/app_flashlight"
             android:roundIcon="@mipmap/ic_fl_launcher_round"
-            android:screenOrientation="sensorPortrait"
             android:taskAffinity="com.tigcal.utils.flash"
             android:theme="@style/AppTheme.Flashlight.LaunchScreen">
             <intent-filter>
