@@ -14,13 +14,14 @@ import android.util.Log
 import android.util.TypedValue
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.AttrRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import kotlinx.android.synthetic.main.activity_flashlight.*
 
 class FlashlightActivity : AppCompatActivity() {
     private var cameraManager: CameraManager? = null
@@ -28,11 +29,16 @@ class FlashlightActivity : AppCompatActivity() {
     private var flashlightOn: Boolean = false
     private var flashAvailable: Boolean = false
 
+    private val flashlightButton by lazy {
+        findViewById<TextView>(R.id.flashlight_button)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTheme(R.style.AppTheme_Flashlight)
         setContentView(R.layout.activity_flashlight)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         cameraManager = getSystemService(Context.CAMERA_SERVICE) as CameraManager
@@ -51,7 +57,7 @@ class FlashlightActivity : AppCompatActivity() {
             Log.d(TAG, "CameraAccessException while accessing camera characteristics:" + e.message)
         }
 
-        flashlight_button.setOnClickListener {
+        flashlightButton.setOnClickListener {
             flashlightOn = !flashlightOn
             toggleCamera2Flashlight(flashlightOn)
         }
@@ -64,6 +70,11 @@ class FlashlightActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
+            R.id.menu_about -> {
+                val aboutDialog: AboutDialog = AboutDialog.newInstance()
+                aboutDialog.show(supportFragmentManager, getString(R.string.about_header))
+                true
+            }
             R.id.menu_settings -> {
                 startActivity(Intent(this, SettingsActivity::class.java))
                 true
@@ -130,13 +141,13 @@ class FlashlightActivity : AppCompatActivity() {
         try {
             cameraId?.apply { cameraManager?.setTorchMode(this, isOn) }
 
-            flashlight_button.setBackgroundColor(if (isOn)
+            flashlightButton.setBackgroundColor(if (isOn)
                 ContextCompat.getColor(this@FlashlightActivity, R.color.fl_primary)
             else
                 getThemeColor(R.attr.colorSurface, Color.WHITE)
             )
-            flashlight_button.text = if (isOn) getString(R.string.fl_turn_off) else getString(R.string.fl_turn_on)
-            flashlight_button.setTextColor(if (isOn)
+            flashlightButton.text = if (isOn) getString(R.string.fl_turn_off) else getString(R.string.fl_turn_on)
+            flashlightButton.setTextColor(if (isOn)
                 ContextCompat.getColor(this@FlashlightActivity, R.color.primary_text)
             else
                 getThemeColor(R.attr.colorOnSurface, Color.BLACK)
