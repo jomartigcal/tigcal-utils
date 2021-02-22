@@ -23,6 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:lineSpacingMultiplier="1.2"
             android:text="@string/about_app"
             android:textColor="?android:textColorPrimary"
             android:textSize="18sp" />
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:lineSpacingMultiplier="1.2"
             android:text="@string/about_developer"
             android:textColor="?android:textColorPrimary"
             android:textSize="18sp" />
@@ -43,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:lineSpacingMultiplier="1.2"
             android:text="@string/about_contact_info"
             android:textColor="?android:textColorPrimary"
             android:textSize="18sp" />
