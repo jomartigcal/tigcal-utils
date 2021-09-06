@@ -11,6 +11,10 @@
     <string name="fl_turn_off">Turn off Flashlight</string>
     <string name="fl_okay">Okay</string>
 
+    <string name="about_header">About</string>
+    <string name="about_contact_info">For comments or suggestions, send an email at <a href="mailto:jomar@tigcal.com">jomar@tigcal.com</a>\n\n</string>
+    <string name="about_app">Tigcal Utilities is a collection of utility mini-apps.  \n</string>
+    <string name="about_developer">This app was developed by <a href="https://www.tigcal.com">Jomar Tigcal</a>.\n</string>
 
     <string name="send_feedback_header">Send Feedback</string>
     <string name="send_feedback_subject">Feedback: %s Android App</string>
