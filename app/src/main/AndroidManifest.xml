@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tigcal.utils">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" />
@@ -18,7 +17,8 @@
             android:label="@string/app_flashlight"
             android:roundIcon="@mipmap/ic_fl_launcher_round"
             android:taskAffinity="com.tigcal.utils.flash"
-            android:theme="@style/AppTheme.Flashlight.LaunchScreen">
+            android:theme="@style/AppTheme.Flashlight.LaunchScreen"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +31,8 @@
             android:label="@string/app_battery"
             android:roundIcon="@mipmap/ic_b_launcher_round"
             android:taskAffinity="com.tigcal.utils.batt"
-            android:theme="@style/AppTheme.Battery">
+            android:theme="@style/AppTheme.Battery"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

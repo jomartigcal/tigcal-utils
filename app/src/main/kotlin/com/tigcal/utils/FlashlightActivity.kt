@@ -106,7 +106,7 @@ class FlashlightActivity : AppCompatActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when (requestCode) {
-            REQUEST_CAMERA -> if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            REQUEST_CAMERA -> if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 switchFlashlight(flashlightOn)
             } else {
                 AlertDialog.Builder(this)
@@ -191,11 +191,19 @@ class FlashlightActivity : AppCompatActivity() {
 
     private fun getPackageVersion(): String {
         return try {
-            packageManager.getPackageInfo(packageName, 0).versionName
+            getPackageInfo().versionName
         } catch (e: PackageManager.NameNotFoundException) {
             Log.e(TAG, "package name not found")
             ""
         }
+    }
+
+    private fun getPackageInfo() = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+        packageManager.getPackageInfo(
+            packageName, PackageManager.PackageInfoFlags.of(0)
+        )
+    } else {
+        packageManager.getPackageInfo(packageName, 0)
     }
 
     companion object {
