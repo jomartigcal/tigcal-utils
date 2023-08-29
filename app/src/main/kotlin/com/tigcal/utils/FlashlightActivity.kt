@@ -55,6 +55,8 @@ class FlashlightActivity : AppCompatActivity() {
                     ?: false
         } catch (e: CameraAccessException) {
             Log.d(TAG, "CameraAccessException while accessing camera characteristics:" + e.message)
+        } catch (e: Exception) {
+            Log.d(TAG, "Exception while accessing camera characteristics:" + e.message)
         }
 
         flashlightButton.setOnClickListener {
